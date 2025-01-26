@@ -13,7 +13,7 @@ func getNextActionsGlobal(w http.ResponseWriter, r *http.Request) {
 	var percent map[string]map[string]float64
 	var actionType model.ActionType
 	actionType.Type = r.URL.Query().Get("type")
-	if actionType == "" {
+	if actionType.Type == "" {
 		http.Error(w, "Missing 'type' query parameter", http.StatusBadRequest)
 		return
 	}
