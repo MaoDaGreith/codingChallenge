@@ -1,7 +1,6 @@
 package model
 
 import (
-	"errors"
 	"time"
 )
 
@@ -11,13 +10,22 @@ type User struct {
 	CreatedAt time.Time `json:"createdAt"`
 }
 
-func (u User) Validate() error {
-	if u.ID == 0 {
-		return errors.New("User ID should not be empty")
-	}
-	return nil
-}
-
 type UserIDGetter struct {
 	ID int `json:"id"`
+}
+
+type Action struct {
+	ID         int       `json:"id"`
+	Type       string    `json:"type"`
+	UserID     int       `json:"userId"`
+	TargetUser int       `json:"targetUser"`
+	CreatedAt  time.Time `json:"createdAt"`
+}
+
+type ActionCountGetter struct {
+	ID int `json:"id"`
+}
+
+type Count struct {
+	Count int `json:"count"`
 }
