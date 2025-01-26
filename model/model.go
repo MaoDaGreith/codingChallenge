@@ -29,3 +29,12 @@ type ActionCountGetter struct {
 type Count struct {
 	Count int `json:"count"`
 }
+
+type ActionType struct {
+	Type string `json:"type"`
+}
+
+type GroupedActions struct {
+	UserID  int      `json:"userId"`
+	Actions []Action `json:"actions"`
+}
