@@ -26,7 +26,6 @@ func getNextActionsGlobal(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Respond with percentages in JSON format
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(percentages)
 }

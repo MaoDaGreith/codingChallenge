@@ -16,7 +16,6 @@ func getUserActionsTotal(w http.ResponseWriter, r *http.Request) {
 
 	var err error
 
-	// getting the id parameter from the URL
 	if len(segments) >= 3 && segments[1] == "count" {
 		userID.ID, err = strconv.Atoi(segments[2])
 		if err != nil {
@@ -28,13 +27,11 @@ func getUserActionsTotal(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// calling the Search function for an id from the file
 	data, err := repository.ActionsCount(userID)
 	if err != nil {
 		http.Error(w, "Error while searching user ID: "+err.Error(), http.StatusInternalServerError)
 	}
 
-	// encoding data to send to writer
 	response, err := json.Marshal(data)
 	if err != nil {
 		http.Error(w, "Failed to encode data to JSON", http.StatusInternalServerError)
