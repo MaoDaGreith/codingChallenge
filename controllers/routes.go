@@ -9,6 +9,7 @@ func NewRouter() *http.ServeMux {
 
 	mux.HandleFunc("/get/", getUserID)
 	mux.HandleFunc("/count/", getUserActionsTotal)
+	mux.HandleFunc("/nextAction", getNextActionsGlobal)
 
 	return mux
 }
