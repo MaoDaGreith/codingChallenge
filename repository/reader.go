@@ -11,6 +11,7 @@ func dataReader(pathFile string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer file.Close()
 
 	content, err := io.ReadAll(file)
 	if err != nil {
